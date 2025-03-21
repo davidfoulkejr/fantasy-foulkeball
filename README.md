@@ -1,38 +1,19 @@
-# sv
+# Fantasy Foulkeball
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+### Overview
 
-## Creating a project
+This project is a Web app I built to practice with Flask and SvelteKit. It is essentially
+an NFL Scores app that shows the results of every NFL game from 2024, as well as a list of
+every NFL teams with links to their schedules/results and rosters.
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Demo
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+I don't currently have a demo app running, but you can view it by cloning the repository 
+and running the dev server using the commands below.
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+git clone https://github.com/davidfoulkejr/fantasy-foulkeball.git
+cd fantasy-foulkeball
+yarn
+yarn dev --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
