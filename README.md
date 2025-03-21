@@ -11,9 +11,20 @@ every NFL teams with links to their schedules/results and rosters.
 I don't currently have a demo app running, but you can view it by cloning the repository 
 and running the dev server using the commands below.
 
+Bash:
 ```bash
 git clone https://github.com/davidfoulkejr/fantasy-foulkeball.git
 cd fantasy-foulkeball
+export $VITE_USE_MOCK_DATA = "true"
+yarn
+yarn dev --open
+```
+
+PowerShell:
+```powershell
+git clone https://github.com/davidfoulkejr/fantasy-foulkeball.git
+cd fantasy-foulkeball
+$env:VITE_USE_MOCK_DATA = "true"
 yarn
 yarn dev --open
 ```
