@@ -1,40 +1,20 @@
 <script lang="ts">
 	import type { ITeam } from '$lib/api';
-	type Division = { name: string; teams: ITeam[] };
-	type Conference = { name: string; divisions: Division[] };
+	import type { ITeamsLayoutData } from './layout.interface';
+	import AppContent from '$lib/components/app-content.svelte';
 	const { data } = $props();
-	const { teams } = data as { teams: ITeam[] };
+	const { teamsByConference }: ITeamsLayoutData = data;
 
-	function getDivisionDisplayName(team: ITeam) {
-		return `${team.conferenceAbv} ${team.division}`;
-	}
 	function getTeamDisplayName(team: ITeam) {
 		return `${team.teamCity} ${team.teamName}`;
 	}
-
-	let currentConference = teams[0].conference;
-	let currentDivision = getDivisionDisplayName(teams[0]);
-	let division: Division = { name: currentDivision, teams: [] };
-	const conferences: Conference[] = [{ name: currentConference, divisions: [division] }];
-
-	for (let i = 0; i < teams.length; i++) {
-		const team = teams[i];
-		if (team.conference !== currentConference) {
-			conferences.push({ name: team.conference, divisions: [] });
-			currentConference = team.conference;
-		}
-		const divisionName = getDivisionDisplayName(team);
-		if (divisionName !== currentDivision) {
-			division = { name: getDivisionDisplayName(team), teams: [] };
-			currentDivision = divisionName;
-			conferences[conferences.length - 1].divisions.push(division);
-		}
-		division.teams.push(team);
-	}
 </script>
 
+{@debug teamsByConference}
+
+<AppContent>
 <div class="teams-container">
-	{#each conferences as conference}
+	{#each teamsByConference as conference}
 		<div class="conference">
 			<h2>{conference.name}</h2>
 			{#each conference.divisions as division}
@@ -60,6 +40,7 @@
 		</div>
 	{/each}
 </div>
+</AppContent>
 
 <style>
 	.teams-container {

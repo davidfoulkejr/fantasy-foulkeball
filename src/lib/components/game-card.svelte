@@ -1,11 +1,15 @@
 <script lang="ts">
-	import type { IGame, ITeam } from '$lib/api';
+	import type { IGame } from '$lib/api';
 	import { gameDateAsDate } from '../helpers/utils';
-	const { game, teams }: { game: IGame; teams: Map<string, ITeam> } = $props();
+	import type { IGameCardProps } from './game-card.interface';
+
+	const { game, teams, weekLabel }: IGameCardProps = $props();
 	const gameDate = $derived(gameDateAsDate(game.gameDate.toString()));
-	const gameDateStr = $derived(gameDate
-		? gameDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-		: 'undefined');
+	const gameDateStr = $derived(
+		gameDate
+			? gameDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+			: 'undefined'
+	);
 
 	const homeTeam = $derived(teams.get(game.home));
 	const awayTeam = $derived(teams.get(game.away));
@@ -19,37 +23,59 @@
 	}
 </script>
 
-<div class="container">
-	<div class="subsection matchup">
-		<div class="team {getHomeResult(game) === 'W' ? 'winner' : ''}">
-			<img src={homeTeam?.nflComLogo1} alt="{homeTeam?.teamName} logo" />
-			<span class="name">{homeTeam?.teamName}</span>
-			<span class="score">{game.homePts}</span>
+<div class="wrapper">
+	<div class="container">
+		{#if weekLabel}
+		<div class="subsection week-label">
+			<h4>{weekLabel === "Conference Championship" ? `${homeTeam?.conferenceAbv} Champ.` : weekLabel}</h4>
+			</div>
+		{/if}
+		<div class="subsection matchup">
+			<div class="team {getHomeResult(game) === 'W' ? 'winner' : ''}">
+				<img src={homeTeam?.nflComLogo1} alt="{homeTeam?.teamName} logo" />
+				<span class="name">{homeTeam?.teamName}</span>
+				<span class="score">{game.homePts}</span>
+			</div>
+			<div class="team {getHomeResult(game) === 'L' ? 'winner' : ''}">
+				<img src={awayTeam?.nflComLogo1} alt="{awayTeam?.teamName} logo" />
+				<span class="name">{awayTeam?.teamName}</span>
+				<span class="score">{game.awayPts}</span>
+			</div>
 		</div>
-		<div class="team {getHomeResult(game) === 'L' ? 'winner' : ''}">
-			<img src={awayTeam?.nflComLogo1} alt="{awayTeam?.teamName} logo" />
-			<span class="name">{awayTeam?.teamName}</span>
-			<span class="score">{game.awayPts}</span>
+		<div class="subsection game-info">
+			<div class="status">{game.gameStatus}</div>
+			<div class="date">{gameDateStr}</div>
 		</div>
-	</div>
-	<div class="subsection game-info">
-		<div class="status">{game.gameStatus}</div>
-		<div class="date">{gameDateStr}</div>
 	</div>
 </div>
 
 <style>
-	.container {
+	.wrapper {
 		border: 1px solid #ccc;
+		width: 100%;
+		height: auto;
 		display: flex;
-		> .subsection:first-child {
-			border-right: 1px solid #ccc;
+		flex-direction: column;
+	}
+
+	.container {
+		display: flex;
+	}
+	.week-label {
+		flex: 0 1 0;
+		text-align: center;
+		flex-basis: 5rem;
+		border-right: 1px solid #ccc;
+		> h4 {
+			margin: 0;
+			padding: 0;
 		}
 	}
 
 	.matchup {
 		flex: 1;
-		align-items: flex-start;
+			border-right: 1px solid #ccc;
+			align-items: flex-start;
 	}
 
 	.subsection {
@@ -111,4 +137,5 @@
 		padding-right: 10px;
 		position: relative;
 	}
+
 </style>

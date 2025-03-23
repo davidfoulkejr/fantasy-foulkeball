@@ -4,6 +4,7 @@
 	import { gameDateAsDate } from '$lib/helpers/utils';
 	import TabSelector from '$lib/components/tab-selector.svelte';
 	import type { ITab } from '$lib/components/tab-selector.interface.js';
+	import AppContent from '$lib/components/app-content.svelte';
 	let { data, children } = $props();
 	function getDateRangeForWeek(week: IGame[]) {
 		const gameDatesForWeek = week.map((game) => parseInt(game.gameDate));
@@ -37,5 +38,8 @@
 	);
 </script>
 
+<AppContent>
+  
 <TabSelector {tabs} scrollButtons={true} />
 {@render children()}
+</AppContent>

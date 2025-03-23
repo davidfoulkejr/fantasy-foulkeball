@@ -11,7 +11,7 @@
 			<ul class="nav__list">
 				<li><a class="nav__list__item {page.url.pathname === "/" && "current"}" href="/"><span>Home</span></a></li>
 				<li><a class="nav__list__item {page.url.pathname.startsWith("/schedule") && "current"}" href="/schedule/1"><span>Schedule</span></a></li>
-				<li><a class="nav__list__item {page.url.pathname === "/teams" && "current"}" href="/teams"><span>Teams</span></a></li>
+				<li><a class="nav__list__item {page.url.pathname.startsWith("/teams") && "current"}" href="/teams"><span>Teams</span></a></li>
 			</ul>
 		</nav>
 	</div>
@@ -85,7 +85,7 @@
 
 	.app__content {
 		max-width: 900px;
-		padding: 20px;
+		/* padding: 20px; */
 		box-sizing: border-box;
 		background-color: white;
 		height: 100%;
