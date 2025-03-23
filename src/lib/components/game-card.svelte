@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { IGame, ITeam } from '$lib/api';
-	import { gameDateAsDate } from './utils';
+	import { gameDateAsDate } from '../helpers/utils';
 	const { game, teams }: { game: IGame; teams: Map<string, ITeam> } = $props();
 	const gameDate = $derived(gameDateAsDate(game.gameDate.toString()));
 	const gameDateStr = $derived(gameDate

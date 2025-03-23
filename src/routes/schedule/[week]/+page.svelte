@@ -1,7 +1,7 @@
 <script lang="ts">
 	import API from '$lib/api';
 	import { page } from '$app/state';
-	import GameCard from '../game-card.svelte';
+	import GameCard from '$lib/components/game-card.svelte';
 	const { data } = $props();
 	const teams = $derived(data.teams);
 	const schedule = $derived(data.schedule);

@@ -43,7 +43,7 @@
 					<ul class="teams-list">
 						{#each division.teams as team}
 							<li class="team-list-item">
-								<img src={team.nflComLogo1} alt="{team.teamName} logo" />
+								<a class='team-home-link' href="/teams/{team.teamAbv}"><img class='team-logo' src={team.nflComLogo1} alt="{team.teamName} logo" /></a>
 								<div class="team-info">
 									<span>{getTeamDisplayName(team)}</span>
 									<ul class="team-links">
@@ -109,11 +109,14 @@
 		display: flex;
 		align-items: center;
 		gap: 10px;
-		> img {
+	}
+	.team-home-link {
 			height: 100%;
 			flex-basis: 3rem;
+			> img {
+				width: 100%;
+			}
 		}
-	}
 
 	.team-info {
 		display: flex;
