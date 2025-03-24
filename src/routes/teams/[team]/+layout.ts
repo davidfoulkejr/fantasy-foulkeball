@@ -9,7 +9,7 @@ export const load = async ({ parent, params }) => {
 	const teamData = teams.find((t) => t.teamAbv === team);
 	const teamColors: string[] | undefined = TeamColors.find(
 		(t) => t.name === `${teamData?.teamCity} ${teamData?.teamName}`
-	)?.colors?.hex?.map((color) => `#${color}`);
+	)?.colors?.hex;
 	if (!teamData) {
 		throw new Error(`Team ${team} not found`);
 	}
@@ -17,7 +17,7 @@ export const load = async ({ parent, params }) => {
 	const conference = teamData.conferenceAbv;
 	const division = teamData.division;
 	const sortedTeams = teams.sort(
-		(a, b) => parseInt(a.wins) - parseInt(b.wins) || parseInt(a.tie) - parseInt(b.tie)
+		(a, b) => parseInt(b.wins) - parseInt(a.wins) || parseInt(b.tie) - parseInt(a.tie)
 	);
 	let leagueRank = 1;
 	let conferenceRank = 1;

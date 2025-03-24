@@ -1,0 +1,322 @@
+[
+  {
+      "name": "Baltimore Ravens",
+      "colors": {
+          "hex": [
+              "#241773",
+              "#000000",
+              "#9E7C0C",
+              "#C60C30"
+          ]
+      }
+  },
+  {
+      "name": "Cincinnati Bengals",
+      "colors": {
+          "hex": [
+              "#FB4F14",
+              "#000000"
+          ]
+      }
+  },
+  {
+      "name": "Cleveland Browns",
+      "colors": {
+          "hex": [
+              "#311D00",
+              "#FF3C00"
+          ]
+      }
+  },
+  {
+      "name": "Pittsburgh Steelers",
+      "colors": {
+          "hex": [
+              "#FFB612",
+              "#101820",
+              "#003087",
+              "#C60C30",
+              "#A5ACAF"
+          ]
+      }
+  },
+  {
+      "name": "Buffalo Bills",
+      "colors": {
+          "hex": [
+              "#00338D",
+              "#C60C30"
+          ]
+      }
+  },
+  {
+      "name": "Miami Dolphins",
+      "colors": {
+          "hex": [
+              "#008E97",
+              "#FC4C02",
+              "#005778"
+          ]
+      }
+  },
+  {
+      "name": "New England Patriots",
+      "colors": {
+          "hex": [
+              "#002244",
+              "#C60C30",
+              "#B0B7BC"
+          ]
+      }
+  },
+  {
+      "name": "New York Jets",
+      "colors": {
+          "hex": [
+              "#125740",
+              "#000000",
+              "#FFFFFF"
+          ]
+      }
+  },
+  {
+      "name": "Houston Texans",
+      "colors": {
+          "hex": [
+              "#03202F",
+              "#A71930"
+          ]
+      }
+  },
+  {
+      "name": "Indianapolis Colts",
+      "colors": {
+          "hex": [
+              "#002C5F",
+              "#A2AAAD"
+          ]
+      }
+  },
+  {
+      "name": "Jacksonville Jaguars",
+      "colors": {
+          "hex": [
+              "#101820",
+              "#D7A22A",
+              "#9F792C",
+              "#006778"
+          ]
+      }
+  },
+  {
+      "name": "Tennessee Titans",
+      "colors": {
+          "hex": [
+              "#0C2340",
+              "#4B92DB",
+              "#C8102E",
+              "#8A8D8F"
+          ]
+      }
+  },
+  {
+      "name": "Denver Broncos",
+      "colors": {
+          "hex": [
+              "#FB4F14",
+              "#002244"
+          ]
+      }
+  },
+  {
+      "name": "Kansas City Chiefs",
+      "colors": {
+          "hex": [
+              "#E31837",
+              "#FFB81C"
+          ]
+      }
+  },
+  {
+      "name": "Las Vegas Raiders",
+      "colors": {
+          "hex": [
+              "#000000",
+              "#A5ACAF"
+          ]
+      }
+  },
+  {
+      "name": "Los Angeles Chargers",
+      "colors": {
+          "hex": [
+              "#0080C6",
+              "#FFC20E",
+              "#FFFFFF"
+          ]
+      }
+  },
+  {
+      "name": "Chicago Bears",
+      "colors": {
+          "hex": [
+              "#0B162A",
+              "#C83803"
+          ]
+      }
+  },
+  {
+      "name": "Detroit Lions",
+      "colors": {
+          "hex": [
+              "#0076B6",
+              "#B0B7BC",
+              "#000000",
+              "#FFFFFF"
+          ]
+      }
+  },
+  {
+      "name": "Green Bay Packers",
+      "colors": {
+          "hex": [
+              "#203731",
+              "#FFB612"
+          ]
+      }
+  },
+  {
+      "name": "Minnesota Vikings",
+      "colors": {
+          "hex": [
+              "#4F2683",
+              "#FFC62F"
+          ]
+      }
+  },
+  {
+      "name": "Dallas Cowboys",
+      "colors": {
+          "hex": [
+              "#003594",
+              "#041E42",
+              "#869397",
+              "#7F9695",
+              "#FFFFFF"
+          ]
+      }
+  },
+  {
+      "name": "New York Giants",
+      "colors": {
+          "hex": [
+              "#0B2265",
+              "#A71930",
+              "#A5ACAF"
+          ]
+      }
+  },
+  {
+      "name": "Philadelphia Eagles",
+      "colors": {
+          "hex": [
+              "#004C54",
+              "#A5ACAF",
+              "#ACC0C6",
+              "#000000",
+              "#565A5C"
+          ]
+      }
+  },
+  {
+      "name": "Washington Commanders",
+      "colors": {
+          "hex": [
+              "#5A1414",
+              "#FFB612"
+          ]
+      }
+  },
+  {
+      "name": "Atlanta Falcons",
+      "colors": {
+          "hex": [
+              "#A71930",
+              "#000000",
+              "#A5ACAF"
+          ]
+      }
+  },
+  {
+      "name": "Carolina Panthers",
+      "colors": {
+          "hex": [
+              "#0085CA",
+              "#101820",
+              "#BFC0BF"
+          ]
+      }
+  },
+  {
+      "name": "New Orleans Saints",
+      "colors": {
+          "hex": [
+              "#D3BC8D",
+              "#101820"
+          ]
+      }
+  },
+  {
+      "name": "Tampa Bay Buccaneers",
+      "colors": {
+          "hex": [
+              "#D50A0A",
+              "#FF7900",
+              "#FF7900",
+              "#B1BABF",
+              "#34302B"
+          ]
+      }
+  },
+  {
+      "name": "Arizona Cardinals",
+      "colors": {
+          "hex": [
+              "#97233F",
+              "#000000",
+              "#FFB612"
+          ]
+      }
+  },
+  {
+      "name": "Los Angeles Rams",
+      "colors": {
+          "hex": [
+              "#003594",
+              "#FFA300",
+              "#FF8200",
+              "#FFD100",
+              "#FFFFFF"
+          ]
+      }
+  },
+  {
+      "name": "San Francisco 49ers",
+      "colors": {
+          "hex": [
+              "#AA0000",
+              "#B3995D"
+          ]
+      }
+  },
+  {
+      "name": "Seattle Seahawks",
+      "colors": {
+          "hex": [
+              "#002244",
+              "#69BE28",
+              "#A5ACAF"
+          ]
+      }
+  }
+]

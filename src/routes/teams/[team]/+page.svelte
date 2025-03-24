@@ -17,7 +17,7 @@
 						<img
 							class="image-link"
 							src={NoImage}
-							alt="Placeholder since no preview was found for this link."
+							alt="Blank placeholder - no preview was found for this link."
 						/>
 					{/if}
 				</div>

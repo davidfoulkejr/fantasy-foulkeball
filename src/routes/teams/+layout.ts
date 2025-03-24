@@ -7,7 +7,6 @@ function getDivisionDisplayName(team: ITeam) {
 }
 
 export async function load() {
-	console.log('Loading teams...');
 	const teamsByAbv = await API.getAllTeams();
 
 	// Sort teams by conference, division, and team city
