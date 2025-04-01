@@ -18,7 +18,7 @@
 	class="banner"
 	style="background-color:{teamPrimaryColor || 'inherit'}; color:{teamInfoTextColor || 'inherit'}"
 >
-	<div>
+	<div class='link-container'>
 		<a href="/teams" class="back-link">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -83,8 +83,16 @@
 		padding: 0 20px;
 	}
 
-	.back-link {
-		padding-top: 1rem;
+	.link-container {
+		display:flex;
+		flex-direction:column;
+		align-items: flex-start;
+		justify-content: flex-end;
+		height: 3rem;
+	}
+	
+	.back-link {		padding: 5px;
+
 		display: flex;
 		align-items: center;
 		gap: 10px;
@@ -102,7 +110,7 @@
 		padding: 10px 0;
 		width: 100%;
 		> img {
-			height: 8rem;
+			width: 8rem;
 		}
 	}
 

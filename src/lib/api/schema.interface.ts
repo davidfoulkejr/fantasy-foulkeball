@@ -315,3 +315,22 @@ export interface IPlayer {
 	 */
 	yahooPlayerID: string;
 }
+
+export interface INewsLink {
+	/**
+	 * URL of the news article
+	 */
+	link: string;
+	/**
+	 * Title of the news article
+	 */
+	title: string;
+	/**
+	 * Preview image of the news article
+	 */
+	image?: string;
+	/**
+	 * Player ID associated with the news article
+	 */
+	playerID?: string;
+}

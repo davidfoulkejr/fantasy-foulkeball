@@ -1,8 +1,9 @@
-import MockTeams from './teams.json';
-import MockSchedule from './schedule.json';
-import MockRoster from './roster.json';
-import MockWsh from './wsh.json';
 import MockGames from './games.json';
+import MockNews from './news.json';
+import MockRoster from './roster.json';
+import MockSchedule from './schedule.json';
+import MockTeams from './teams.json';
+import MockWsh from './wsh.json';
 import TeamColors from './hexCodes.json';
 
-export { MockTeams, MockSchedule, MockRoster, MockWsh, MockGames, TeamColors };
+export { MockGames, MockNews, MockRoster, MockSchedule, MockTeams, MockWsh, TeamColors };

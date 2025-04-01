@@ -5,6 +5,7 @@
 	import TabSelector from '$lib/components/tab-selector.svelte';
 	import type { ITab } from '$lib/components/tab-selector.interface.js';
 	import AppContent from '$lib/components/app-content.svelte';
+
 	let { data, children } = $props();
 	function getDateRangeForWeek(week: IGame[]) {
 		const gameDatesForWeek = week.map((game) => parseInt(game.gameDate));
@@ -25,12 +26,13 @@
 		};
 	}
 
+	const allWeeks = $derived(data.schedule);
 	const tabs: ITab[] = $derived(
-		data.schedule?.map((week, i) => {
-			const dates = getDateRangeForWeek(week);
+		allWeeks.map((week, i) => {
+			const dates = getDateRangeForWeek(week.games);
 			return {
 				href: `/schedule/${i + 1}`,
-				label: `Week ${i + 1}`,
+				label: week.label,
 				sublabel: `${dates.startDate} - ${dates.endDate}`,
 				isActive: i + 1 === parseInt(page.url.pathname.split('/').pop() || '1')
 			};
@@ -39,7 +41,6 @@
 </script>
 
 <AppContent>
-  
-<TabSelector {tabs} scrollButtons={true} />
-{@render children()}
+	<TabSelector {tabs} scrollButtons={true} />
+	{@render children()}
 </AppContent>

@@ -10,8 +10,6 @@
 	}
 </script>
 
-{@debug teamsByConference}
-
 <AppContent>
 <div class="teams-container">
 	{#each teamsByConference as conference}

@@ -1,6 +1,5 @@
-import { MockTeams, MockSchedule, MockRoster, MockWsh, MockGames } from './mocks';
-import type { ITeam, IGame, IPlayer } from './schema.interface';
-import { getRandomScore } from './utils';
+import { MockTeams, MockSchedule, MockRoster, MockWsh, MockGames, MockNews } from './mocks';
+import type { ITeam, IGame, IPlayer, INewsLink } from './schema.interface';
 
 export class NflApi {
 	private baseUrl: string;
@@ -45,27 +44,22 @@ export class NflApi {
 	public async getAllTeams(): Promise<ITeam[]> {
 		const promise = (
 			this.useMockData ? Promise.resolve(MockTeams) : this.getJson('teams')
-		) as Promise<{ [key: string]: ITeam }>;
-		const res = await promise;
-		return Object.entries(res)
-			.filter(([key]) => parseInt(key) > 0)
-			.map((tuple) => tuple[1]);
+		) as Promise<ITeam[]>;
+		return promise;
 	}
 
 	public async getOneTeam(team: string): Promise<ITeam> {
 		const promise = (
 			this.useMockData ? Promise.resolve(MockWsh) : this.getJson(`teams/${team}`)
-		) as Promise<{ [key: string]: ITeam }>;
-		const res = await promise;
-		return Object.values(res)[0];
+		) as Promise<ITeam>;
+		return promise;
 	}
 
 	public async getTeamRoster(team: string): Promise<IPlayer[]> {
 		const promise = (
 			this.useMockData ? Promise.resolve(MockRoster) : this.getJson(`teams/${team}/roster`)
-		) as Promise<{ [key: string]: IPlayer }>;
-		const res = await promise;
-		return Object.values(res);
+		) as Promise<IPlayer[]>;
+		return promise;
 	}
 
 	public async getTeamSchedule(team: string, season?: string): Promise<IGame[]> {
@@ -73,52 +67,36 @@ export class NflApi {
 			this.useMockData
 				? Promise.resolve(MockSchedule)
 				: this.getJson(`teams/${team}/schedule`, { season })
-		) as Promise<{
-			[key: string]: IGame;
-		}>;
-		const res = await promise;
-		return Object.values(res);
+		) as Promise<IGame[]>;
+		return promise;
 	}
 
 	public async getLeagueSchedule(
 		season?: string,
 		segment?: string,
 		week?: string
-	): Promise<IGame[][]> {
-		const promise = (
-			this.useMockData
-				? Promise.resolve(MockGames)
-				: this.getJson('games', { season, segment, week })
-		) as Promise<{
-			[weekId: string]: { [gameId: string]: IGame };
-		}>;
-		const res = await promise;
-		const weeks = Object.entries(res)
-			.map(([weekId, games]) => ({ weekId, games }))
-			.sort((a, b) => parseInt(a.weekId) - parseInt(b.weekId));
-		return weeks.map(({ games }) => Object.values(games));
-	}
-
-	public async getWeeklyScores(
-		season: string = '2024',
-		segment: string = 'reg',
-		week: string = '1'
 	): Promise<IGame[]> {
 		const promise = (
 			this.useMockData
-				? Promise.resolve(MockGames).then((games) => {
-						const gamesInWeek: { [key: string]: IGame } = games[week as keyof typeof games];
-						const retVal: { [key: string]: IGame } = {};
-						for (const gameId in gamesInWeek) {
-							const game = gamesInWeek[gameId];
-							retVal[gameId] = getRandomScore(game);
-						}
+				? Promise.resolve(MockGames)
+				: this.getJson('schedule', { season, segment, week })
+		) as Promise<IGame[]>;
+		return promise;
+	}
 
-						return retVal;
-					})
+	public async getWeeklyScores(season?: string, segment?: string, week?: string): Promise<IGame[]> {
+		const promise = (
+			this.useMockData
+				? Promise.resolve(MockGames)
 				: this.getJson(`scores/${season}/${segment}/${week}`)
-		) as Promise<{ [key: string]: IGame }>;
-		const res = await promise;
-		return Object.values(res);
+		) as Promise<IGame[]>;
+		return promise;
+	}
+
+	public async getNews(team?: string): Promise<INewsLink[]> {
+		const promise = (
+			this.useMockData ? Promise.resolve(MockNews) : this.getJson('news', { team })
+		) as Promise<INewsLink[]>;
+		return promise;
 	}
 }
