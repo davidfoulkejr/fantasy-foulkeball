@@ -10,6 +10,7 @@ export type {
 	IPlayer,
 	INewsLink
 } from './schema.interface';
+export { nflSeasonOrder, sortTeamScheduleByWeek, sortLeagueScheduleByWeek } from './utils';
 export default new NflApi(
 	import.meta.env.VITE_API_BASE_URL,
 	import.meta.env.VITE_USE_MOCK_DATA === 'true'

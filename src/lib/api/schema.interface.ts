@@ -334,3 +334,8 @@ export interface INewsLink {
 	 */
 	playerID?: string;
 }
+
+export interface IWeek {
+	label: string;
+	games: IGame[];
+}
