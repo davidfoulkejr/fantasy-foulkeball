@@ -4,7 +4,7 @@
 	import type { IGameCardProps } from './game-card.interface';
 
 	const { game, teams, weekLabel }: IGameCardProps = $props();
-	const gameDate = $derived(gameDateAsDate(game.gameDate.toString()));
+	const gameDate = $derived(gameDateAsDate(game.gameDate?.toString() || "" ));
 	const gameDateStr = $derived(
 		gameDate
 			? gameDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
