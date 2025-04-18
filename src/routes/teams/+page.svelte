@@ -25,9 +25,9 @@
 								<div class="team-info">
 									<span>{getTeamDisplayName(team)}</span>
 									<ul class="team-links">
+										<li><a href="/teams/{team.teamAbv}">News</a></li>
 										<li><a href="/teams/{team.teamAbv}/schedule">Schedule</a></li>
 										<li><a href="/teams/{team.teamAbv}/roster">Roster</a></li>
-										<li><a href="/teams/{team.teamAbv}/depthchart">Depth Chart</a></li>
 									</ul>
 								</div>
 							</li>

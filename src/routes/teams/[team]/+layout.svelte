@@ -52,7 +52,7 @@
 			tabs={[
 				{
 					href: `/teams/${team.teamAbv}`,
-					label: 'Home',
+					label: 'News',
 					isActive: lastUrlSegment === team.teamAbv
 				},
 				{
@@ -65,11 +65,6 @@
 					label: 'Roster',
 					isActive: lastUrlSegment === 'roster'
 				},
-				{
-					href: `/teams/${team.teamAbv}/depthchart`,
-					label: 'Depth Chart',
-					isActive: lastUrlSegment === 'depthchart'
-				}
 			]}
 			scrollButtons={false}
 		/>

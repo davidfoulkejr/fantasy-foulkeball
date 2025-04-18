@@ -64,7 +64,7 @@
 	.week-label {
 		flex: 0 1 0;
 		text-align: center;
-		flex-basis: 5rem;
+		flex-basis: 5.5rem;
 		border-right: 1px solid #ccc;
 		> h4 {
 			margin: 0;
@@ -90,7 +90,7 @@
 	.game-info {
 		flex: 0 1 0;
 		align-items: center;
-		flex-basis: 5rem;
+		flex-basis: 5.5rem;
 	}
 
 	.status {

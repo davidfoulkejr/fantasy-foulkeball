@@ -5,7 +5,6 @@
 	const news: INewsLink[] = data.news;
 </script>
 
-<h2>News</h2>
 <ul class="news-list">
 	{#each news as { link, title, image }}
 		<li class="news-item">

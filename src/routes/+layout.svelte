@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/state';
-
+	import '../app.css';
 	let { children } = $props();
 </script>
 
@@ -9,9 +9,23 @@
 		<h1>Fantasy Foulkeball</h1>
 		<nav>
 			<ul class="nav__list">
-				<li><a class="nav__list__item {page.url.pathname === "/" && "current"}" href="/"><span>Home</span></a></li>
-				<li><a class="nav__list__item {page.url.pathname.startsWith("/schedule") && "current"}" href="/schedule/1"><span>Schedule</span></a></li>
-				<li><a class="nav__list__item {page.url.pathname.startsWith("/teams") && "current"}" href="/teams"><span>Teams</span></a></li>
+				<li>
+					<a class="nav__list__item {page.url.pathname === '/' && 'current'}" href="/"
+						><span>Home</span></a
+					>
+				</li>
+				<li>
+					<a
+						class="nav__list__item {page.url.pathname.startsWith('/schedule') && 'current'}"
+						href="/schedule/1"><span>Schedule</span></a
+					>
+				</li>
+				<li>
+					<a
+						class="nav__list__item {page.url.pathname.startsWith('/teams') && 'current'}"
+						href="/teams"><span>Teams</span></a
+					>
+				</li>
 			</ul>
 		</nav>
 	</div>
