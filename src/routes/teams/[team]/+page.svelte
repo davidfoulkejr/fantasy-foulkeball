@@ -2,27 +2,31 @@
 	import NoImage from '$lib/assets/no-image.jpg';
 	import type { INewsLink } from '$lib/api';
 	const { data } = $props();
-	const news: INewsLink[] = data.news;
+	const news: Promise<INewsLink[]> = data.news;
 </script>
 
-<ul class="news-list">
-	{#each news as { link, title, image }}
-		<li class="news-item">
-			<a class="news-item-link" href={link} target="_blank" rel="noopener noreferrer">
-				<div class="image-container">
-					{#if image}
-						<img src={image} alt={title} />
-					{:else}
-						<img src={NoImage} alt="Blank placeholder - no preview was found for this link." />
-					{/if}
-				</div>
-				<div class="headline-container">
-					<h4 class="headline">{title}</h4>
-				</div></a
-			>
-		</li>
-	{/each}
-</ul>
+{#await news}
+	<div>loading news...</div>
+{:then news}
+	<ul class="news-list">
+		{#each news as { link, title, image }}
+			<li class="news-item">
+				<a class="news-item-link" href={link} target="_blank" rel="noopener noreferrer">
+					<div class="image-container">
+						{#if image}
+							<img src={image} alt={title} />
+						{:else}
+							<img src={NoImage} alt="Blank placeholder - no preview was found for this link." />
+						{/if}
+					</div>
+					<div class="headline-container">
+						<h4 class="headline">{title}</h4>
+					</div></a
+				>
+			</li>
+		{/each}
+	</ul>
+{/await}
 
 <style>
 	.news-list {

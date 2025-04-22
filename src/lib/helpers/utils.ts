@@ -1,3 +1,6 @@
+import { TeamColors } from '$lib/api/mocks';
+import type { ITeam } from '$lib/api/schema.interface.js';
+
 export const gameDateAsDate = (gameDate: string): Date | null => {
 	const datePattern = new RegExp(/(?<year>\d{4})(?<month>\d{2})(?<day>\d{2})/);
 	const gameDateMatch = datePattern.exec(gameDate.toString());
@@ -10,6 +13,9 @@ export const gameDateAsDate = (gameDate: string): Date | null => {
 		parseInt(gameDateMatch.groups.day)
 	);
 };
+
+export const getTeamColors = (team: ITeam): string[] | undefined =>
+	TeamColors.find((t) => t.name === `${team.teamCity} ${team.teamName}`)?.colors?.hex;
 
 /**
  * Calculates the brightness of a color based on its RGB values.

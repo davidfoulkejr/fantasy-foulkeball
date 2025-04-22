@@ -1,26 +1,12 @@
 <script lang="ts">
-	import API, { type IPlayer } from '$lib/api';
-	import { page } from '$app/state';
+	import type IPlayer from '$lib/api';
 
-	const team = $derived(page.params.team);
-	function fetchTeamRoster(team: string): Promise<IPlayer[]> {
-		return API.getTeamRoster(team).then(roster => roster.sort((a, b) => {
-      const aFirst = a.longName.split(' ')[0].toLowerCase();
-      const bFirst = b.longName.split(' ')[0].toLowerCase();
-      const aLast = a.longName.split(' ').slice(1).join(' ').toLowerCase();
-      const bLast = b.longName.split(' ').slice(1).join(' ').toLowerCase();
-      if (aLast < bLast) return -1;
-      else if (aLast > bLast) return 1;
-      else if (aFirst < bFirst) return -1;
-      else if (aFirst > bFirst) return 1;
-      else return 0;
-    }));
-	}
-	const players = $derived(fetchTeamRoster(team));
+	const { data } = $props();
+	const roster: Promise<IPlayer[]> = data.roster;
 </script>
 
 <div class="grid grid-cols-3 gap-4">
-	{#await players}
+	{#await roster}
 		<div class="col-span-2 sm:col-span-3">Loading...</div>
 	{:then players}
 		{#each players as player}
@@ -32,7 +18,5 @@
 				</div>
 			</div>
 		{/each}
-	{:catch error}
-		<div class="col-span-2 sm:col-span-3">Something went wrong</div>
 	{/await}
 </div>
