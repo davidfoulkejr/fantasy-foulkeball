@@ -1,1 +1,1 @@
-<div></div>
+<div>Select a week to view scores</div>

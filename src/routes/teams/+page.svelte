@@ -9,37 +9,43 @@
 	}
 </script>
 
-<AppContent>
-	<div class="teams-container">
-		{#each teamsByConference as conference}
-			<div class="conference">
-				<h2>{conference.name}</h2>
-				{#each conference.divisions as division}
-					<div class="division">
-						<h4>{division.name}</h4>
-						<ul class="teams-list">
-							{#each division.teams as team}
-								<li class="team-list-item">
-									<a class="team-home-link" href="/teams/{team.teamAbv}"
-										><img class="team-logo" src={team.nflComLogo1} alt="{team.teamName} logo" /></a
-									>
-									<div class="team-info">
-										<span>{getTeamDisplayName(team)}</span>
-										<ul class="team-links">
-											<li><a href="/teams/{team.teamAbv}">News</a></li>
-											<li><a href="/teams/{team.teamAbv}/schedule">Schedule</a></li>
-											<li><a href="/teams/{team.teamAbv}/roster">Roster</a></li>
-										</ul>
-									</div>
-								</li>
-							{/each}
-						</ul>
-					</div>
-				{/each}
-			</div>
-		{/each}
-	</div>
-</AppContent>
+{#await teamsByConference then teamsByConference}
+	<AppContent>
+		<div class="teams-container">
+			{#each teamsByConference as conference}
+				<div class="conference">
+					<h2>{conference.name}</h2>
+					{#each conference.divisions as division}
+						<div class="division">
+							<h4>{division.name}</h4>
+							<ul class="teams-list">
+								{#each division.teams as team}
+									<li class="team-list-item">
+										<a class="team-home-link" href="/teams/{team.teamAbv}"
+											><img
+												class="team-logo"
+												src={team.nflComLogo1}
+												alt="{team.teamName} logo"
+											/></a
+										>
+										<div class="team-info">
+											<span>{getTeamDisplayName(team)}</span>
+											<ul class="team-links">
+												<li><a href="/teams/{team.teamAbv}">News</a></li>
+												<li><a href="/teams/{team.teamAbv}/schedule">Schedule</a></li>
+												<li><a href="/teams/{team.teamAbv}/roster">Roster</a></li>
+											</ul>
+										</div>
+									</li>
+								{/each}
+							</ul>
+						</div>
+					{/each}
+				</div>
+			{/each}
+		</div>
+	</AppContent>
+{/await}
 
 <style>
 	.teams-container {
